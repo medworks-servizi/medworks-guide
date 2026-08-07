@@ -89,29 +89,24 @@ img{max-width:100%}
 .go{margin-left:auto;color:var(--ink3);transition:.18s var(--ease)}
 .glist li a:hover .go{color:var(--ink);transform:translateX(3px)}
 
-/* ---- Resta aggiornato ---- */
-.news{background:linear-gradient(180deg,var(--gold-tint),#fff)}
-.news .inner{max-width:1100px;margin:0 auto;padding:clamp(36px,5vw,60px) clamp(18px,4vw,40px);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,48px);align-items:center}
-.news h2{font-family:'Righteous',sans-serif;font-weight:400;font-size:clamp(24px,3.4vw,36px);letter-spacing:.01em}
-.news h2::after{content:'';display:block;width:34px;height:3px;background:var(--gold-d);border-radius:2px;margin-top:12px}
-.news p{margin-top:16px;color:var(--ink2);font-size:clamp(14.5px,1.8vw,16.5px);max-width:46ch}
-.news-form{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
-.news-form .fake-input{flex:1;min-width:200px;background:#fff;border:1.5px solid var(--rule);border-radius:10px;padding:13px 16px;color:var(--ink3);font-size:14.5px;font-family:'Poppins',sans-serif}
-.news-form a.sub{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-weight:600;font-size:14.5px;text-decoration:none;border-radius:10px;padding:13px 22px;transition:.2s var(--ease);white-space:nowrap}
-.news-form a.sub:hover{background:var(--coral-d);transform:translateY(-1px);box-shadow:var(--shadow-h)}
-.news-media .imgslot{aspect-ratio:1/1;max-width:380px;margin-left:auto}
-@media (max-width:760px){.news .inner{grid-template-columns:1fr}.news-media{order:-1}.news-media .imgslot{margin:0 auto;max-width:300px}}
-
-/* ---- Footer ---- */
-.site-foot{background:var(--ink);color:rgba(255,255,255,.78)}
-.site-foot .inner{max-width:1180px;margin:0 auto;padding:clamp(34px,5vw,56px) clamp(18px,4vw,40px) clamp(24px,3vw,36px);display:flex;flex-wrap:wrap;gap:28px 48px;justify-content:space-between;align-items:flex-start}
-.site-foot .fcol-brand{max-width:280px}
-.site-foot .fw{font-family:'Righteous',sans-serif;font-size:24px;color:#fff;letter-spacing:.02em}
-.site-foot .fw::after{content:'';display:block;width:26px;height:3px;background:var(--gold);border-radius:2px;margin-top:10px}
-.site-foot .fcol h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:14px}
-.site-foot .fcol a{display:block;color:#fff;text-decoration:none;font-weight:500;font-size:14.5px;margin-bottom:9px;transition:color .18s}
-.site-foot .fcol a:hover{color:var(--gold)}
-.site-foot .disc{flex-basis:100%;border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.7}
+/* ---- Footer unico (come medworks.it) ---- */
+.site-foot{background:var(--ink);color:#fff}
+.site-foot .inner{max-width:1265px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(16px,4vw,40px) clamp(24px,3vw,36px);display:grid;grid-template-columns:1.4fr .8fr;gap:clamp(28px,4vw,56px);align-items:start}
+.site-foot h2,.site-foot h3{font-family:'Righteous',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.06em;color:#fff;font-size:clamp(22px,3vw,30px)}
+.site-foot p{font-weight:200;color:#fff;margin-top:14px;font-size:15px;line-height:1.7}
+.site-foot .small{font-size:13px;color:rgba(255,255,255,.75)}
+.site-foot a{color:var(--gold);text-decoration:none}
+.site-foot a:hover{text-decoration:underline}
+.news-form{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+.news-form .fake-input{flex:1;min-width:200px;background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:0;padding:18px 26px;color:#8B93A1;font-size:15px;font-weight:200;font-family:'Poppins',sans-serif}
+.news-form a.sub{display:inline-flex;align-items:center;background:var(--gold);color:#000;font-family:'Righteous',sans-serif;font-size:13px;text-transform:uppercase;text-decoration:none;border-radius:10px;padding:18px 26px;transition:.2s var(--ease);white-space:nowrap}
+.news-form a.sub:hover{background:#E5C13C;text-decoration:none}
+.foot-contacts p{margin-top:6px;font-size:14px}
+.foot-social{margin-top:18px;display:flex;gap:14px}
+.foot-social a{color:#fff;font-size:14px;font-weight:200}
+.foot-social a:hover{color:var(--gold)}
+.site-foot .disc{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:18px;margin-top:8px;font-size:12.5px;font-weight:200;color:rgba(255,255,255,.55);line-height:1.7}
+@media (max-width:760px){.site-foot .inner{grid-template-columns:1fr}}
 
 /* ---- Load motion ---- */
 @keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
@@ -265,45 +260,30 @@ img{max-width:100%}
 
 </main>
 
-<section class="news">
+<footer class="site-foot">
   <div class="inner">
-    <div class="news-copy">
+    <div>
       <h2>Resta aggiornato</h2>
       <p>Registrati con il tuo indirizzo e-mail per ricevere notizie e aggiornamenti, e sapere quando esce una nuova guida.</p>
       <div class="news-form">
         <span class="fake-input">Indirizzo e-mail</span>
-        <a class="sub" href="https://www.medworks.it/contact" target="_blank" rel="noopener noreferrer">Iscriviti &rarr;</a>
+        <a class="sub" href="https://www.medworks.it/contact" target="_blank" rel="noopener noreferrer">Registrati</a>
+      </div>
+      <p class="small">Cliccando su &ldquo;registrati&rdquo; accetti la nostra <a href="https://drive.google.com/file/d/1-z6ud1KZDjfxMpn5PMcQTgYQRRPneO_d/view?pli=1" target="_blank" rel="noopener noreferrer">privacy policy</a>. Qui puoi visionare la nostra <a href="https://drive.google.com/file/d/1EMs8s17Yb1uCb-PGMRZ_1gu2kNviX7Oy/view" target="_blank" rel="noopener noreferrer">cookie policy</a>.</p>
+    </div>
+    <div class="foot-contacts">
+      <h3>MedWorks</h3>
+      <p>Corso Luigi Einaudi 55</p>
+      <p>10129, Torino, Italia</p>
+      <p><a href="mailto:medworks.corsi@gmail.com">medworks.corsi@gmail.com</a></p>
+      <p>+39 349 761 3868</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/medworks.it/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/people/MedWorks/100091685544133/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="mailto:medworks.corsi@gmail.com">E-mail</a>
       </div>
     </div>
-    <div class="news-media">
-      <div class="imgslot">
-        <div class="ph">Immagine newsletter &mdash; metti <b>assets/newsletter.webp</b><br>(quadrata ~700&times;700)</div>
-        <img src="assets/newsletter.webp" alt="" onerror="this.style.display='none'">
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="site-foot">
-  <div class="inner">
-    <div class="fcol fcol-brand">
-      <div class="fw">MedWorks</div>
-      <p style="margin-top:14px;font-size:14px;color:rgba(255,255,255,.62);line-height:1.7">Le guide pratiche per orientarti tra fisco, previdenza e tutele del medico.</p>
-    </div>
-    <div class="fcol">
-      <h4>Sito</h4>
-      <a href="https://www.medworks.it/corsi" target="_blank" rel="noopener noreferrer">Corsi</a>
-      <a href="https://www.medworks.it/servizi-new" target="_blank" rel="noopener noreferrer">Servizi</a>
-      <a href="https://www.medworks.it/services" target="_blank" rel="noopener noreferrer">Libri</a>
-      <a href="https://www.medworks.it/negozio-2" target="_blank" rel="noopener noreferrer">Shop</a>
-    </div>
-    <div class="fcol">
-      <h4>MedWorks</h4>
-      <a href="https://www.medworks.it/about" target="_blank" rel="noopener noreferrer">Chi siamo</a>
-      <a href="https://www.medworks.it/contact" target="_blank" rel="noopener noreferrer">Contatti</a>
-      <a href="https://www.instagram.com/medworks.it/" target="_blank" rel="noopener noreferrer">Instagram</a>
-    </div>
-    <p class="disc">I contenuti delle guide hanno finalit&agrave; informativa e divulgativa e non sostituiscono la consulenza fiscale, previdenziale, assicurativa o legale personalizzata. Dati e riferimenti normativi sono aggiornati alla data di redazione di ciascuna guida.</p>
+    <p class="disc">&copy; Copyright 2024 All Rights Reserved &middot; I contenuti delle guide hanno finalit&agrave; informativa e divulgativa e non sostituiscono la consulenza fiscale, previdenziale, assicurativa o legale personalizzata. Dati e riferimenti normativi sono aggiornati alla data di redazione di ciascuna guida.</p>
   </div>
 </footer>
 
