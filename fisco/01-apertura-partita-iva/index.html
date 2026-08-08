@@ -133,6 +133,8 @@ body{background:var(--mw-bg);padding-top:60px}
 @media (max-width:640px){.mw-crumb{font-size:13px}}
 .mw-sep{height:1px;background:var(--mw-rule);margin-block:clamp(28px,4vw,44px);margin-inline:clamp(16px,4.5vw,52px)}
 .s-header .header-row1{justify-content:flex-end}
+.nav-spacer{flex:0 0 auto}
+@media (max-width:480px){.nav-spacer{display:none}}
 
 /* ---- Header ---- */
 .site-head{position:fixed;top:0;left:0;right:0;z-index:60;background:var(--mw-surface);border-bottom:1px solid var(--mw-rule)}
@@ -380,7 +382,8 @@ body{font-weight:400}
   </div>
 
   <div class="nav-bar">
-    <a class="nav-btn prev" href="../../#fisco">Torna ad Home</a>
+    <span class="nav-spacer"></span>
+    <a class="nav-btn home" href="../../#fisco">Torna ad Home</a>
     <a class="nav-btn next" href="../02-codice-ateco/">02 &mdash; Codice ATECO (86.21.00 vs 86.22.01)</a>
   </div>
 
