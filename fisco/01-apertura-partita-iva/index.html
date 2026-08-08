@@ -131,6 +131,12 @@ body { width: 100%; background: var(--white); font-family: 'Roboto', sans-serif;
 :root{--mw-ink:#243041;--mw-ink2:#4A5464;--mw-ink3:#8B93A1;--mw-gold:#F2D04B;--mw-gold-d:#D7AC2A;--mw-grey:#D9D9D9;--mw-surface:#FFFFFF;--mw-bg:#FFFFFF;--mw-rule:rgba(36,48,65,.12);--mw-rule2:rgba(36,44,56,.06);--mw-ease:cubic-bezier(.4,0,.2,1)}
 body{background:var(--mw-bg);padding-top:60px}
 .mw-wrap{width:100%;max-width:1265px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px);padding-block:clamp(24px,4vw,56px)}
+.mw-crumb{display:flex;align-items:center;gap:8px;font-family:'Poppins',sans-serif;font-weight:200;font-size:14px;color:var(--mw-ink3);margin-bottom:clamp(16px,2vw,24px);min-width:0}
+.mw-crumb a{color:var(--mw-ink3);text-decoration:none}
+.mw-crumb a:hover{color:var(--mw-ink);text-decoration:underline}
+.mw-crumb .sep{color:var(--mw-grey);flex-shrink:0}
+.mw-crumb .cur{color:var(--mw-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+@media (max-width:640px){.mw-crumb{font-size:13px}}
 
 /* ---- Header ---- */
 .site-head{position:fixed;top:0;left:0;right:0;z-index:60;background:var(--mw-surface);border-bottom:1px solid var(--mw-rule)}
@@ -191,6 +197,7 @@ body{font-weight:400}
   </div>
 </header>
 <main class="mw-wrap">
+<nav class="mw-crumb" aria-label="Percorso"><a href="../../">Guide</a><span class="sep">&rsaquo;</span><a href="../../#fisco">Fiscalit&agrave; e gestione contabile</a><span class="sep">&rsaquo;</span><span class="cur">01 &middot; Apertura Partita IVA</span></nav>
 
 <!-- PAGINA 1 -->
 <div class="page">
