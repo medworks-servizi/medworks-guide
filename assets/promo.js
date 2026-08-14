@@ -42,3 +42,108 @@ export function decidi(cfg, contatore, referrer) {
   if (n >= cfg.ogniQuanteGuide) return { mostra: true, contatore: 0 };
   return { mostra: false, contatore: n };
 }
+
+/* ---------- Da qui in giù: solo browser ---------- */
+
+const CSS = `
+.mw-promo{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.82);
+  display:flex;align-items:center;justify-content:center;padding:16px;
+  -webkit-tap-highlight-color:transparent}
+.mw-promo img{max-width:100%;max-height:82vh;width:auto;height:auto;
+  object-fit:contain;border-radius:10px;cursor:pointer;display:block}
+.mw-promo-x{position:fixed;top:calc(env(safe-area-inset-top, 0px) + 12px);right:12px;
+  width:44px;height:44px;border-radius:50%;border:none;background:#fff;color:#111;
+  font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;
+  justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.35)}
+.mw-promo-x:focus-visible{outline:3px solid #4C9AFF;outline-offset:2px}
+body.mw-promo-open{overflow:hidden}
+`;
+
+function leggiContatore() {
+  try {
+    const v = localStorage.getItem(CHIAVE);
+    if (v === null) return null;
+    const n = Number.parseInt(v, 10);
+    return Number.isFinite(n) ? n : null;
+  } catch {
+    return null; // navigazione privata restrittiva: si comporta come "mai visto"
+  }
+}
+
+function scriviContatore(n) {
+  try {
+    if (n !== null) localStorage.setItem(CHIAVE, String(n));
+  } catch {
+    /* niente da fare */
+  }
+}
+
+function mostra(cfg) {
+  const overlay = document.createElement('div');
+  overlay.className = 'mw-promo';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', cfg.alt);
+
+  const img = document.createElement('img');
+  img.src = cfg.immagine;
+  img.alt = cfg.alt;
+
+  const x = document.createElement('button');
+  x.className = 'mw-promo-x';
+  x.type = 'button';
+  x.setAttribute('aria-label', 'Chiudi');
+  x.textContent = '✕';
+
+  function chiudi() {
+    overlay.remove();
+    x.remove();
+    document.body.classList.remove('mw-promo-open');
+    document.removeEventListener('keydown', suTasto);
+  }
+
+  function suTasto(e) {
+    if (e.key === 'Escape') chiudi();
+  }
+
+  img.addEventListener('click', () => {
+    try {
+      if (window.umami) window.umami.track('promo-click', { campagna: cfg.alt });
+    } catch {
+      /* analytics assente: non deve mai bloccare il click */
+    }
+    window.open(cfg.link + cfg.utm, '_blank', 'noopener');
+  });
+
+  x.addEventListener('click', chiudi);
+  document.addEventListener('keydown', suTasto);
+  // Il click sul fondo NON chiude: chiusura attiva richiesta da Alessandro.
+  overlay.addEventListener('click', (e) => e.stopPropagation());
+
+  // Se l'immagine non carica, il popup non deve restare come schermo nero.
+  img.addEventListener('error', chiudi);
+
+  const stile = document.createElement('style');
+  stile.textContent = CSS;
+  document.head.appendChild(stile);
+
+  overlay.appendChild(img);
+  document.body.appendChild(overlay);
+  document.body.appendChild(x);
+  document.body.classList.add('mw-promo-open');
+  x.focus();
+}
+
+function avvia() {
+  const esito = decidi(PROMO, leggiContatore(), document.referrer);
+  scriviContatore(esito.contatore);
+  if (esito.mostra) mostra(PROMO);
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', avvia);
+  } else {
+    avvia();
+  }
+}
