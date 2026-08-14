@@ -95,15 +95,23 @@ function mostra(cfg) {
   x.setAttribute('aria-label', 'Chiudi');
   x.textContent = '✕';
 
+  const stile = document.createElement('style');
+  stile.textContent = CSS;
+
   function chiudi() {
     overlay.remove();
-    x.remove();
+    stile.remove();
     document.body.classList.remove('mw-promo-open');
     document.removeEventListener('keydown', suTasto);
   }
 
   function suTasto(e) {
     if (e.key === 'Escape') chiudi();
+    if (e.key === 'Tab') {
+      // Unico elemento interattivo nel dialog: il focus non deve mai uscirne.
+      e.preventDefault();
+      x.focus();
+    }
   }
 
   img.addEventListener('click', () => {
@@ -117,19 +125,16 @@ function mostra(cfg) {
 
   x.addEventListener('click', chiudi);
   document.addEventListener('keydown', suTasto);
-  // Il click sul fondo NON chiude: chiusura attiva richiesta da Alessandro.
-  overlay.addEventListener('click', (e) => e.stopPropagation());
+  // Chiusura solo attiva (X o ESC): il click sul fondo non deve chiudere il popup.
 
   // Se l'immagine non carica, il popup non deve restare come schermo nero.
   img.addEventListener('error', chiudi);
 
-  const stile = document.createElement('style');
-  stile.textContent = CSS;
   document.head.appendChild(stile);
 
   overlay.appendChild(img);
+  overlay.appendChild(x);
   document.body.appendChild(overlay);
-  document.body.appendChild(x);
   document.body.classList.add('mw-promo-open');
   x.focus();
 }
