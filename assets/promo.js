@@ -3,8 +3,7 @@
 // Le 65 guide non vanno toccate. GitHub Pages propaga la modifica entro ~10 minuti.
 export const PROMO = {
   attivo: true,
-  immagine: '/assets/promo/segnaposto.svg', // PROVVISORIO: sostituire con l'immagine vera al Task 9
-
+  immagine: '/assets/promo/masterclass-ecografia.jpg',
   alt: 'Masterclass di ecografia LinkMed',
   link: 'https://www.medworks.it/corsi/p/masterclassecografia',
   utm: '?utm_source=guide&utm_medium=popup&utm_campaign=masterclass-ecografia',
