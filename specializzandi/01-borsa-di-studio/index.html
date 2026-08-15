@@ -9,7 +9,7 @@
 
 :root {
   --accent:#6D28D9; --accent-dark:#5B21B6; --accent-bright:#8B5CF6; --accent-bg:#F3EEFC;
-  --ink:#111318; --ink-2:#2A2D38; --ink-3:#5C6070; --surface:#FAF7F4; --white:#FFFFFF; --rule:#E8E2DC; --green:#2A6B5E; --green-bg:#E4F2EF;
+  --ink:#111318; --ink-2:#2A2D38; --ink-3:#5C6070; --surface:#FAF7F4; --white:#FFFFFF; --rule:#E8E2DC; --green:#2A6B5E; --green-bg:#E4F2EF; --red:#8B1A1A; --red-bg:#FAEAEA;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { width: 100%; background: var(--white); font-family: 'Roboto', sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
@@ -54,15 +54,15 @@ body { width: 100%; background: var(--white); font-family: 'Roboto', sans-serif;
 .dd-head { display: flex; align-items: center; gap: 10px; margin-bottom: 3px; }
 .dd-icon { width: clamp(22px, 2.8vw, 30px); height: clamp(22px, 2.8vw, 30px); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: clamp(11px, 1.3vw, 14px); font-weight: 700; flex-shrink: 0; }
 .dd-icon.do   { background: var(--green-bg); color: var(--green); border: 1.5px solid var(--green); }
-.dd-icon.dont { background: var(--accent-bg); color: var(--accent-bright); border: 1.5px solid var(--accent-bright); }
+.dd-icon.dont { background: var(--red-bg); color: var(--red); border: 1.5px solid var(--red); }
 .dd-title { font-family: 'Righteous', sans-serif; font-size: clamp(13px, 1.7vw, 18px); letter-spacing: 0.08em; text-transform: uppercase; }
 .dd-title.do   { color: var(--green); }
-.dd-title.dont { color: var(--accent-bright); }
+.dd-title.dont { color: var(--red); }
 .dd-list { list-style: none; display: flex; flex-direction: column; gap: clamp(7px, 1vw, 10px); }
 .dd-list li { display: block; position: relative; padding-left: 18px; font-size: clamp(12px, 1.5vw, 16px); color: var(--ink-2); line-height: 1.45; }
 .dd-bullet { position: absolute; left: 0; top: calc(0.725em - 4px); width: 8px; height: 8px; border-radius: 50%; }
 .dd-bullet.do   { background: var(--green); }
-.dd-bullet.dont { background: var(--accent-bright); }
+.dd-bullet.dont { background: var(--red); }
 .s-footer { background: #111318; padding: clamp(8px, 1.2vw, 13px) clamp(16px, 4.5vw, 52px); display: flex; justify-content: space-between; align-items: center; }
 .p2-topbar { background: var(--accent); padding: clamp(12px, 1.8vw, 20px) clamp(16px, 4.5vw, 52px); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; gap: 12px; flex-wrap: wrap; }
 .p2-topbar-title { font-family: 'Righteous', sans-serif; font-size: clamp(16px, 2.5vw, 28px); color: white; letter-spacing: 0.01em; }
