@@ -8,10 +8,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@400;500;700&display=swap');
 
 :root {
-  --accent:        #8B1A1A;
-  --accent-dark:   #6B0F0F;
-  --accent-bright: #A52020;
-  --accent-bg:     #FAEAEA;
+  --accent:        #6F5915;
+  --accent-dark:   #564410;
+  --accent-bright: #896D1A;
+  --accent-bg:     #FAF3E1;
   --ink:           #111318;
   --ink-2:         #2A2D38;
   --ink-3:         #5C6070;
@@ -20,6 +20,8 @@
   --rule:          #E8E2DC;
   --green:         #2A6B5E;
   --green-bg:      #E4F2EF;
+  --red:           #8B1A1A;
+  --red-bg:        #FAEAEA;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,7 +37,7 @@ body { width: 100%; background: var(--white); font-family: 'Roboto', sans-serif;
 .s-header { padding: clamp(18px, 3vw, 36px) clamp(16px, 4.5vw, 52px) clamp(16px, 2.5vw, 28px); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: clamp(12px, 2vw, 20px); background: var(--white); }
 .header-row1 { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .product-tag { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
-.tag-badge { display: inline-flex; align-items: center; gap: 6px; background: #111318; color: #F0A0A0; border: 1px solid #A52020; padding: clamp(4px, 0.7vw, 8px) clamp(10px, 1.5vw, 18px); border-radius: 3px; font-family: 'Righteous', sans-serif; font-size: clamp(10px, 1.4vw, 15px); letter-spacing: 0.08em; text-transform: uppercase; }
+.tag-badge { display: inline-flex; align-items: center; gap: 6px; background: #111318; color: #F0DB9E; border: 1px solid #896D1A; padding: clamp(4px, 0.7vw, 8px) clamp(10px, 1.5vw, 18px); border-radius: 3px; font-family: 'Righteous', sans-serif; font-size: clamp(10px, 1.4vw, 15px); letter-spacing: 0.08em; text-transform: uppercase; }
 .tag-series { font-size: clamp(9px, 1.1vw, 13px); color: var(--ink-3); font-weight: 400; }
 .main-title { font-family: 'Righteous', sans-serif; font-size: clamp(28px, 5vw, 58px); line-height: 1.05; letter-spacing: -0.01em; color: var(--ink); }
 .main-title em { font-style: normal; color: var(--accent-bright); }
@@ -71,15 +73,15 @@ body { width: 100%; background: var(--white); font-family: 'Roboto', sans-serif;
 .dd-head { display: flex; align-items: center; gap: 10px; margin-bottom: 3px; }
 .dd-icon { width: clamp(22px, 2.8vw, 30px); height: clamp(22px, 2.8vw, 30px); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: clamp(11px, 1.3vw, 14px); font-weight: 700; flex-shrink: 0; }
 .dd-icon.do   { background: var(--green-bg); color: var(--green); border: 1.5px solid var(--green); }
-.dd-icon.dont { background: var(--accent-bg); color: var(--accent-bright); border: 1.5px solid var(--accent-bright); }
+.dd-icon.dont { background: var(--red-bg); color: var(--red); border: 1.5px solid var(--red); }
 .dd-title { font-family: 'Righteous', sans-serif; font-size: clamp(13px, 1.7vw, 18px); letter-spacing: 0.08em; text-transform: uppercase; }
 .dd-title.do   { color: var(--green); }
-.dd-title.dont { color: var(--accent-bright); }
+.dd-title.dont { color: var(--red); }
 .dd-list { list-style: none; display: flex; flex-direction: column; gap: clamp(7px, 1vw, 10px); }
 .dd-list li { display: block; position: relative; padding-left: 18px; font-size: clamp(12px, 1.5vw, 16px); color: var(--ink-2); line-height: 1.45; }
 .dd-bullet { position: absolute; left: 0; top: calc(0.725em - 4px); width: 8px; height: 8px; border-radius: 50%; }
 .dd-bullet.do   { background: var(--green); }
-.dd-bullet.dont { background: var(--accent-bright); }
+.dd-bullet.dont { background: var(--red); }
 
 /* FOOTER */
 .s-footer { background: #111318; padding: clamp(8px, 1.2vw, 13px) clamp(16px, 4.5vw, 52px); display: flex; justify-content: space-between; align-items: center; }
@@ -224,7 +226,7 @@ body{font-weight:400}
     </div>
     <div class="quick-list">
       <div class="q-item">
-        <span class="q-num" style="background:#8B1A1A">1</span>Perch&eacute; la professione medica espone il patrimonio personale e quando il rischio diventa concreto (colpa grave, libera professione, massimale insufficiente).
+        <span class="q-num" style="background:#6F5915">1</span>Perch&eacute; la professione medica espone il patrimonio personale e quando il rischio diventa concreto (colpa grave, libera professione, massimale insufficiente).
       </div>
       <div class="q-item">
         <span class="q-num" style="background:#1E2244">2</span>Come funziona il fondo patrimoniale (art. 167 c.c.) e il suo limite cruciale: i debiti "estranei ai bisogni della famiglia".
@@ -259,8 +261,8 @@ body{font-weight:400}
     </table>
 
     <div class="callout">
-      <div class="callout-bar" style="background:#8B1A1A"></div>
-      <div class="callout-body" style="background:#FAEAEA;color:#5C1A1A">
+      <div class="callout-bar" style="background:#6F5915"></div>
+      <div class="callout-body" style="background:#FAF3E1;color:#4C3E15">
         Nessuno strumento funziona a posteriori: un fondo o un trust costituito quando il debito o la causa &egrave; gi&agrave; in corso &egrave; esposto all'azione revocatoria. La protezione si pianifica quando il cielo &egrave; sereno.
       </div>
     </div>
